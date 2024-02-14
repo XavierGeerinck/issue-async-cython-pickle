@@ -1,6 +1,7 @@
 import pickle
 import ray
 import cloudpickle
+import dill
 
 from my_module.demo_counter import DemoCounter
 
@@ -27,3 +28,8 @@ def test_cloudpickle_coroutine():
 def test_pickle_coroutine():
     a = DemoCounter(12)
     pickle.dumps(a.get_counter_async())
+    
+
+def test_dill_coroutine():
+    a = DemoCounter(12)
+    dill.dumps(a.get_counter_async())
