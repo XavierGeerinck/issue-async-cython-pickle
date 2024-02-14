@@ -1,0 +1,35 @@
+[project]
+name = "my-module"
+version = "0.0.0"
+description = "Demo for reproducing a cloudpickle issue with Cython coroutines"
+authors = [
+    {name = "Xavier Geerinck", email = "xavier@composabl.io"},
+]
+requires-python = ">=3.8"
+dependencies = [
+    "cython",
+    "pytest-asyncio",
+    "ray"
+]
+
+dynamic = ["readme"]
+
+[build-system]
+requires = ["setuptools", "Cython"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.black]
+# https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#what-on-earth-is-a-pyproject-toml-file
+exclude = [
+    "venv",
+    "build",
+    "dist",
+    ".git",
+    ".tox",
+    "composabl_core/proto",
+    "examples"
+]
+
+ignore = ['F821']
+line-length = 100
